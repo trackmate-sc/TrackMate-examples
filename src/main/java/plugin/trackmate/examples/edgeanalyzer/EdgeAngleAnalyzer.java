@@ -47,17 +47,37 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 
 	private long processingTime;
 
-	@Override
-	public long getProcessingTime()
-	{
-		return processingTime;
-	}
+	/*
+	 * TRACKMATEMODULE METHODS
+	 */
 
 	@Override
 	public String getKey()
 	{
 		return KEY;
 	}
+
+	@Override
+	public String getInfoText()
+	{
+		return "";
+	}
+
+	@Override
+	public ImageIcon getIcon()
+	{
+		return null;
+	}
+
+	@Override
+	public String getName()
+	{
+		return "Edge angle";
+	}
+
+	/*
+	 * FEATUREANALYZER METHODS
+	 */
 
 	@Override
 	public List< String > getFeatures()
@@ -83,23 +103,9 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 		return FEATURE_DIMENSIONS;
 	}
 
-	@Override
-	public String getInfoText()
-	{
-		return "";
-	}
-
-	@Override
-	public ImageIcon getIcon()
-	{
-		return null;
-	}
-
-	@Override
-	public String getName()
-	{
-		return "Edge angle";
-	}
+	/*
+	 * MULTITHREADED METHODS
+	 */
 
 	@Override
 	public void setNumThreads()
@@ -119,6 +125,20 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 		// We ignore multithreading for this tutorial.
 		return 1;
 	}
+
+	/*
+	 * BENCHMARK METHODS
+	 */
+
+	@Override
+	public long getProcessingTime()
+	{
+		return processingTime;
+	}
+
+	/*
+	 * EDGEANALYZER METHODS
+	 */
 
 	@Override
 	public void process( final Collection< DefaultWeightedEdge > edges, final Model model )
@@ -144,6 +164,10 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 	{
 		return true;
 	}
+
+	/*
+	 * MAIN METHOD
+	 */
 
 	public static void main( final String[] args )
 	{
