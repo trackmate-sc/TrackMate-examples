@@ -1,4 +1,4 @@
-package plugin.trackmate.exampes.edgeanalyzer;
+package plugin.trackmate.examples.edgeanalyzer;
 
 import ij.ImageJ;
 import ij.ImagePlus;
