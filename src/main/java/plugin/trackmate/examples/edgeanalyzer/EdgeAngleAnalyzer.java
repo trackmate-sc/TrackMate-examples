@@ -1,4 +1,4 @@
-package plugin.trackmate.exampes.edgeanalyzer;
+package plugin.trackmate.examples.edgeanalyzer;
 
 import ij.ImageJ;
 import ij.ImagePlus;
@@ -50,11 +50,9 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 
 	private long processingTime;
 
-	@Override
-	public long getProcessingTime()
-	{
-		return processingTime;
-	}
+	/*
+	 * TRACKMATEMODULE METHODS
+	 */
 
 	@Override
 	public String getKey()
@@ -68,6 +66,24 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 	{
 		return "Edge angle";
 	}
+
+	// We do not use info texts for any feature actually.
+	@Override
+	public String getInfoText()
+	{
+		return "";
+	}
+
+	// The same: we don't use icons for features.
+	@Override
+	public ImageIcon getIcon()
+	{
+		return null;
+	}
+
+	/*
+	 * FEATUREANALYZER METHODS
+	 */
 
 	@Override
 	public List< String > getFeatures()
@@ -93,20 +109,9 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 		return FEATURE_DIMENSIONS;
 	}
 
-	// We do not use info texts for any feature actually.
-	@Override
-	public String getInfoText()
-	{
-		return "";
-	}
-
-	// The same: we don't use icons for features.
-	@Override
-	public ImageIcon getIcon()
-	{
-		return null;
-	}
-
+	/*
+	 * MULTITHREADED METHODS
+	 */
 
 	@Override
 	public void setNumThreads()
@@ -126,6 +131,20 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 		// We ignore multithreading for this tutorial.
 		return 1;
 	}
+
+	/*
+	 * BENCHMARK METHODS
+	 */
+
+	@Override
+	public long getProcessingTime()
+	{
+		return processingTime;
+	}
+
+	/*
+	 * EDGEANALYZER METHODS
+	 */
 
 	@Override
 	public void process( final Collection< DefaultWeightedEdge > edges, final Model model )
@@ -151,6 +170,10 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 	{
 		return true;
 	}
+
+	/*
+	 * MAIN METHOD
+	 */
 
 	public static void main( final String[] args )
 	{
