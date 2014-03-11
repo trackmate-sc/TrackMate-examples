@@ -1,5 +1,8 @@
 package plugin.trackmate.examples.spotanalyzer;
 
+import ij.ImageJ;
+import ij.ImagePlus;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,11 +13,16 @@ import javax.swing.ImageIcon;
 import net.imglib2.meta.ImgPlus;
 import net.imglib2.type.NativeType;
 import net.imglib2.type.numeric.RealType;
+
+import org.scijava.plugin.Plugin;
+
 import fiji.plugin.trackmate.Dimension;
 import fiji.plugin.trackmate.Model;
+import fiji.plugin.trackmate.TrackMatePlugIn_;
 import fiji.plugin.trackmate.features.spot.SpotAnalyzer;
 import fiji.plugin.trackmate.features.spot.SpotAnalyzerFactory;
 
+@Plugin( type = SpotAnalyzerFactory.class, priority = 1d )
 public class RelativeIntensitySpotAnalyzerFactory< T extends RealType< T > & NativeType< T >> implements SpotAnalyzerFactory< T >
 {
 
@@ -92,6 +100,17 @@ public class RelativeIntensitySpotAnalyzerFactory< T extends RealType< T > & Nat
 	public SpotAnalyzer< T > getAnalyzer( final Model model, final ImgPlus< T > img, final int frame, final int channel )
 	{
 		return new RelativeIntensitySpotAnalyzer< T >( model, frame );
+	}
+
+	/*
+	 * MAIN METHOD
+	 */
+
+	public static void main( final String[] args )
+	{
+		ImageJ.main( args );
+		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
+		new TrackMatePlugIn_().run( "" );
 	}
 
 }
