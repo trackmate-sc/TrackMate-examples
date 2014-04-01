@@ -100,7 +100,7 @@ public class SpiralDummyDetector< T extends RealType< T > & NativeType< T >> imp
 		while ( t >= 0 )
 		{
 			final double r = t * RADIAL_SPEED;
-			final double phi0 = nspiral * Math.PI / 10;
+			final double phi0 = nspiral * Math.PI / 4;
 			final double phi = t * ANGULAR_SPEED + phi0;
 
 			// Spot in pixel coordinates.
