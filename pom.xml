@@ -83,6 +83,11 @@
     </repository>
   </repositories>
 
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://jenkins.imagej.net/job/TrackMate-examples/</url>
+	</ciManagement>
+
   <scm>
     <connection>scm:git:git://github.com/imagej/minimal-ij1-plugin</connection>
     <developerConnection>scm:git:git@github.com:imagej/minimal-ij1-plugin</developerConnection>
