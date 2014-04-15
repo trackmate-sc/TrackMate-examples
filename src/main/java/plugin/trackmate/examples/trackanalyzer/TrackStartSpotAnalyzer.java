@@ -43,6 +43,8 @@ public class TrackStartSpotAnalyzer implements TrackAnalyzer
 
 	private static final List< String > FEATURES = new ArrayList< String >( 6 );
 
+	private static final Map< String, Boolean > IS_INT = new HashMap< String, Boolean >( 6 );
+
 	private static final Map< String, String > FEATURE_SHORT_NAMES = new HashMap< String, String >( 6 );
 
 	private static final Map< String, String > FEATURE_NAMES = new HashMap< String, String >( 6 );
@@ -57,6 +59,13 @@ public class TrackStartSpotAnalyzer implements TrackAnalyzer
 		FEATURES.add( TRACK_STOP_X );
 		FEATURES.add( TRACK_STOP_Y );
 		FEATURES.add( TRACK_STOP_Z );
+
+		IS_INT.put( TRACK_START_X, false );
+		IS_INT.put( TRACK_START_Y, false );
+		IS_INT.put( TRACK_START_Z, false );
+		IS_INT.put( TRACK_STOP_X, false );
+		IS_INT.put( TRACK_STOP_Y, false );
+		IS_INT.put( TRACK_STOP_Z, false );
 
 		FEATURE_NAMES.put( TRACK_START_X, "Track start X" );
 		FEATURE_NAMES.put( TRACK_START_Y, "Track start Y" );
@@ -227,5 +236,15 @@ public class TrackStartSpotAnalyzer implements TrackAnalyzer
 		ImageJ.main( args );
 		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
 		new TrackMatePlugIn_().run( "" );
+	}
+
+	@Override
+	public Map<String, Boolean> getIsIntFeature() {
+		return Collections.unmodifiableMap( IS_INT );
+	}
+
+	@Override
+	public boolean isManualFeature() {
+		return false;
 	}
 }

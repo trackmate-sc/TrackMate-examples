@@ -5,6 +5,7 @@ import ij.ImagePlus;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,8 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 
 	private static final List< String > FEATURES = new ArrayList< String >( 1 );
 
+	private static final Map< String, Boolean > IS_INT = new HashMap< String, Boolean >( 1 );
+
 	public static final Map< String, String > FEATURE_NAMES = new HashMap< String, String >( 1 );
 
 	public static final Map< String, String > FEATURE_SHORT_NAMES = new HashMap< String, String >( 1 );
@@ -43,6 +46,7 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 	static
 	{
 		FEATURES.add( EDGE_ANGLE );
+		IS_INT.put( EDGE_ANGLE,  false );
 		FEATURE_NAMES.put( EDGE_ANGLE, "Link angle" );
 		FEATURE_SHORT_NAMES.put( EDGE_ANGLE, "Angle" );
 		FEATURE_DIMENSIONS.put( EDGE_ANGLE, Dimension.ANGLE );
@@ -180,6 +184,16 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 		ImageJ.main( args );
 		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
 		new TrackMatePlugIn_().run( "" );
+	}
+
+	@Override
+	public Map<String, Boolean> getIsIntFeature() {
+		return Collections.unmodifiableMap( IS_INT );
+	}
+
+	@Override
+	public boolean isManualFeature() {
+		return false;
 	}
 
 }

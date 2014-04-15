@@ -4,6 +4,7 @@ import ij.ImageJ;
 import ij.ImagePlus;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,8 @@ public class RelativeIntensitySpotAnalyzerFactory< T extends RealType< T > & Nat
 
 	public static final List< String > FEATURES = new ArrayList< String >( 1 );
 
+	private static final Map< String, Boolean > IS_INT = new HashMap< String, Boolean >( 1 );
+
 	public static final Map< String, String > FEATURE_NAMES = new HashMap< String, String >( 1 );
 
 	public static final Map< String, String > FEATURE_SHORT_NAMES = new HashMap< String, String >( 1 );
@@ -43,6 +46,7 @@ public class RelativeIntensitySpotAnalyzerFactory< T extends RealType< T > & Nat
 	static
 	{
 		FEATURES.add( RELATIVE_INTENSITY );
+		IS_INT.put( RELATIVE_INTENSITY, false );
 		FEATURE_SHORT_NAMES.put( RELATIVE_INTENSITY, "Rel. int." );
 		FEATURE_NAMES.put( RELATIVE_INTENSITY, "Relative intensity" );
 		FEATURE_DIMENSIONS.put( RELATIVE_INTENSITY, Dimension.NONE );
@@ -111,6 +115,16 @@ public class RelativeIntensitySpotAnalyzerFactory< T extends RealType< T > & Nat
 		ImageJ.main( args );
 		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
 		new TrackMatePlugIn_().run( "" );
+	}
+
+	@Override
+	public Map<String, Boolean> getIsIntFeature() {
+		return Collections.unmodifiableMap( IS_INT );
+	}
+
+	@Override
+	public boolean isManualFeature() {
+		return false;
 	}
 
 }
