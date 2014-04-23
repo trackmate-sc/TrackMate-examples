@@ -5,6 +5,13 @@ import static fiji.plugin.trackmate.detection.DetectorKeys.KEY_DO_SUBPIXEL_LOCAL
 import static fiji.plugin.trackmate.detection.DetectorKeys.KEY_RADIUS;
 import static fiji.plugin.trackmate.detection.DetectorKeys.KEY_TARGET_CHANNEL;
 import static fiji.plugin.trackmate.detection.DetectorKeys.KEY_THRESHOLD;
+import static fiji.plugin.trackmate.util.TMUtils.checkMapKeys;
+import static fiji.plugin.trackmate.util.TMUtils.checkParameter;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import ij.ImageJ;
 import ij.ImagePlus;
 
@@ -38,6 +45,8 @@ public class PreProcessingDoGDetectorFactory< T extends RealType< T > & NativeTy
 
 	private static final String NAME = "Pre-processing DoG Detector";
 
+	static final String KEY_BG_RADIUS = "KEY_BG_RADIUS";
+
 	@Override
 	public String getInfoText()
 	{
@@ -69,6 +78,7 @@ public class PreProcessingDoGDetectorFactory< T extends RealType< T > & NativeTy
 		final double threshold = ( Double ) settings.get( KEY_THRESHOLD );
 		final boolean doMedian = ( Boolean ) settings.get( KEY_DO_MEDIAN_FILTERING );
 		final boolean doSubpixel = ( Boolean ) settings.get( KEY_DO_SUBPIXEL_LOCALIZATION );
+		final double bgRadius = ( Double ) settings.get( KEY_BG_RADIUS );
 		final double[] calibration = TMUtils.getSpatialCalibration( img );
 
 		RandomAccessible< T > imFrame;
@@ -93,7 +103,7 @@ public class PreProcessingDoGDetectorFactory< T extends RealType< T > & NativeTy
 			}
 			imFrame = Views.hyperSlice( imFrame, timeDim, frame );
 		}
-		final DogDetector< T > detector = new PreProcessingDoGDetector< T >( imFrame, interval, calibration, radius, threshold, doSubpixel, doMedian );
+		final DogDetector< T > detector = new PreProcessingDoGDetector< T >( imFrame, interval, calibration, radius, threshold, doSubpixel, doMedian, bgRadius );
 		detector.setNumThreads( 1 );
 		return detector;
 	}
@@ -103,6 +113,33 @@ public class PreProcessingDoGDetectorFactory< T extends RealType< T > & NativeTy
 	{
 		// We return a simple configuration panel.
 		return new PreProcessingDoGConfigurationPanel( settings.imp, INFO_TEXT, NAME, model );
+	}
+
+	/* This is unfortunately needed because LogDetectorFactory was not designed extensibly... */
+	/** @inherit */
+	@Override
+	public boolean checkSettings( final Map< String, Object > settings )
+	{
+		boolean ok = true;
+		final StringBuilder errorHolder = new StringBuilder();
+		ok = ok & checkParameter( settings, KEY_TARGET_CHANNEL, Integer.class, errorHolder );
+		ok = ok & checkParameter( settings, KEY_RADIUS, Double.class, errorHolder );
+		ok = ok & checkParameter( settings, KEY_THRESHOLD, Double.class, errorHolder );
+		ok = ok & checkParameter( settings, KEY_DO_MEDIAN_FILTERING, Boolean.class, errorHolder );
+		ok = ok & checkParameter( settings, KEY_DO_SUBPIXEL_LOCALIZATION, Boolean.class, errorHolder );
+		final List< String > mandatoryKeys = new ArrayList< String >();
+		mandatoryKeys.add( KEY_TARGET_CHANNEL );
+		mandatoryKeys.add( KEY_RADIUS );
+		mandatoryKeys.add( KEY_THRESHOLD );
+		mandatoryKeys.add( KEY_DO_MEDIAN_FILTERING );
+		mandatoryKeys.add( KEY_DO_SUBPIXEL_LOCALIZATION );
+		mandatoryKeys.add( KEY_BG_RADIUS );
+		ok = ok & checkMapKeys( settings, mandatoryKeys, null, errorHolder );
+		if ( !ok )
+		{
+			errorMessage = errorHolder.toString();
+		}
+		return ok;
 	}
 
 	/*

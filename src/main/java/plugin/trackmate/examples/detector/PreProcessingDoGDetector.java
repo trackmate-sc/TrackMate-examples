@@ -2,6 +2,7 @@ package plugin.trackmate.examples.detector;
 
 import ij.IJ;
 import ij.ImagePlus;
+import ij.plugin.Duplicator;
 import net.imglib2.Interval;
 import net.imglib2.RandomAccessible;
 import net.imglib2.RandomAccessibleInterval;
@@ -21,13 +22,16 @@ public class PreProcessingDoGDetector< T extends RealType< T > & NativeType< T >
 
 	public final static String BASE_ERROR_MESSAGE = "PreprocessingDoGDetector: ";
 
+	private double bgRadius;
+
 	/*
 	 * CONSTRUCTOR
 	 */
 
-	public PreProcessingDoGDetector( final RandomAccessible< T > img, final Interval interval, final double[] calibration, final double radius, final double threshold, final boolean doSubPixelLocalization, final boolean doMedianFilter )
+	public PreProcessingDoGDetector( final RandomAccessible< T > img, final Interval interval, final double[] calibration, final double radius, final double threshold, final boolean doSubPixelLocalization, final boolean doMedianFilter, final double bgRadius )
 	{
 		super( img, interval, calibration, radius, threshold, doSubPixelLocalization, doMedianFilter );
+		this.bgRadius = bgRadius;
 		this.baseErrorMessage = BASE_ERROR_MESSAGE;
 	}
 
@@ -39,8 +43,8 @@ public class PreProcessingDoGDetector< T extends RealType< T > & NativeType< T >
 	
 		// pre-process
 		final RandomAccessibleInterval<T> interval = Views.interval( img, this.interval );
-		final ImagePlus imp = ImageJFunctions.wrap( interval, img.toString() );
-		IJ.run( imp, "Subtract Background...", "rolling=50 stack" );
+		final ImagePlus imp = new Duplicator().run( ImageJFunctions.wrap( interval, img.toString() ) );
+		IJ.run( imp, "Subtract Background...", "rolling=" + bgRadius );
 		img = ImagePlusAdapter.wrapReal( imp );
 
 		// process
