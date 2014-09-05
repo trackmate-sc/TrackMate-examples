@@ -136,4 +136,22 @@ public class RandomLinkingTracker implements SpotTracker
 		// Ignored.
 	}
 
+	@Override
+	public void setNumThreads()
+	{
+		// Ignored.
+	}
+
+	@Override
+	public void setNumThreads( final int numThreads )
+	{
+		// Ignored.
+	}
+
+	@Override
+	public int getNumThreads()
+	{
+		return 1;
+	}
+
 }
