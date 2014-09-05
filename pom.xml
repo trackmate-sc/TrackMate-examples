@@ -1,106 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
     http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.scijava</groupId>
-    <artifactId>pom-scijava</artifactId>
-    <version>1.155</version>
-    <relativePath />
-  </parent>
+	<parent>
+		<groupId>sc.fiji</groupId>
+		<artifactId>pom-fiji</artifactId>
+		<version>2.0.0-beta-1-SNAPSHOT</version>
+		<relativePath />
+	</parent>
 
-  <groupId>sc.fiji</groupId>
-  <artifactId>TrackMate_examples</artifactId>
-  <version>1.0.0</version>
+	<artifactId>TrackMate_examples</artifactId>
+	<version>1.0.0</version>
 
-  <name>plugins/TrackMate_examples.jar</name>
-  <description>A Maven project with the bare structure to hold TrackMate modules.</description>
+	<name>plugins/TrackMate_examples.jar</name>
+	<description>A Maven project with the bare structure to hold TrackMate modules.</description>
 
-  <properties>
-    <!-- Prevent the plugin from being copied to ./plugins/ by default -->
-    <imagej.app.directory>../fiji/</imagej.app.directory>
-  </properties>
+	<developers>
+		<developer>
+			<id>tinevez</id>
+			<name>Jean-Yves Tinevez</name>
+			<email>jean-yves.tinevez@pasteur.fr</email>
+			<url>http://www.pasteur.fr/ip/easysite/pasteur/fr/recherche/plates-formes-technologiques/imagopole/plates-formes-imagopole/la-plate-forme-d-imagerie-dynamique/equipe-pfid/equipe-pfid-jyt</url>
+			<organization>Institut Pasteur</organization>
+			<organizationUrl>http://www.pasteur.fr/</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>dscho</id>
+			<name>Johannes Schindelin</name>
+			<email>schindelin@wisc.edu</email>
+			<url>http://loci.wisc.edu/people/johannes-schindelin</url>
+			<organization>UW-Madison LOCI</organization>
+			<organizationUrl>http://loci.wisc.edu/</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>-6</timezone>
+		</developer>
+	</developers>
 
-  <build>
-    <resources>
-      <resource>
-        <directory>${basedir}/src/main/resources</directory>
-      </resource>
-      <resource>
-        <directory>${project.build.sourceDirectory}</directory>
-      </resource>
-    </resources>
-    <testResources>
-      <testResource>
-        <directory>${basedir}/src/test/resources</directory>
-      </testResource>
-      <testResource>
-        <directory>${project.build.testSourceDirectory}</directory>
-      </testResource>
-    </testResources>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>java</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <mainClass>Process_Pixels</mainClass>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+	<properties>
+		<imagej.app.directory>../Fiji.app/</imagej.app.directory>
+	</properties>
 
-  <developers>
-    <developer>
-      <id>dscho</id>
-      <name>Johannes Schindelin</name>
-      <email>johannes.schindelin@gmx.de</email>
-      <url>http://loci.wisc.edu/people/johannes-schindelin</url>
-      <organization>UW-Madison LOCI</organization>
-      <organizationUrl>http://loci.wisc.edu/</organizationUrl>
-      <roles>
-        <role>architect</role>
-        <role>developer</role>
-      </roles>
-      <timezone>-6</timezone>
-    </developer>
-  </developers>
+	<repositories>
+		<!-- NB: for project parent -->
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
 
-  <repositories>
-    <!-- NB: for project parent -->
-    <repository>
-      <id>imagej.public</id>
-      <url>http://maven.imagej.net/content/groups/public</url>
-    </repository>
-  </repositories>
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://jenkins.imagej.net/job/TrackMate-examples/</url>
+	</ciManagement>
 
-  <ciManagement>
-    <system>Jenkins</system>
-    <url>http://jenkins.imagej.net/job/TrackMate-examples/</url>
-  </ciManagement>
+	<scm>
+		<connection>scm:git:git://github.com/fiji/TrackMate-examples</connection>
+		<developerConnection>scm:git:git@github.com:fiji/TrackMate-exmaples</developerConnection>
+		<tag>HEAD</tag>
+		<url>scm:git:git@github.com:fiji/TrackMate-examples</url>
+	</scm>
 
-  <scm>
-    <connection>scm:git:git://github.com/imagej/minimal-ij1-plugin</connection>
-    <developerConnection>scm:git:git@github.com:imagej/minimal-ij1-plugin</developerConnection>
-    <tag>HEAD</tag>
-    <url>https://github.com/imagej/minimal-ij1-plugin</url>
-  </scm>
-
-  <dependencies>
-    <dependency>
-      <groupId>sc.fiji</groupId>
-      <artifactId>TrackMate_</artifactId>
-      <version>2.3.0-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>sc.fiji</groupId>
+			<artifactId>TrackMate_</artifactId>
+		</dependency>
+	</dependencies>
 </project>
 
