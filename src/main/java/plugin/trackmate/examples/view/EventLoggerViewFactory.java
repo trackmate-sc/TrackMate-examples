@@ -4,15 +4,9 @@ import ij.ImageJ;
 import ij.ImagePlus;
 
 import javax.swing.ImageIcon;
+import javax.swing.text.ViewFactory;
 
 import org.scijava.plugin.Plugin;
-
-import fiji.plugin.trackmate.Model;
-import fiji.plugin.trackmate.SelectionModel;
-import fiji.plugin.trackmate.Settings;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
-import fiji.plugin.trackmate.visualization.TrackMateModelView;
-import fiji.plugin.trackmate.visualization.ViewFactory;
 
 @Plugin( type = ViewFactory.class )
 public class EventLoggerViewFactory implements ViewFactory

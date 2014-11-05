@@ -6,9 +6,6 @@ import java.util.Map;
 
 import javax.swing.JLabel;
 
-import fiji.plugin.trackmate.gui.ConfigurationPanel;
-import fiji.plugin.trackmate.gui.TrackMateWizard;
-
 public class DummyDetectorSpiralConfigurationPanel extends ConfigurationPanel
 {
 

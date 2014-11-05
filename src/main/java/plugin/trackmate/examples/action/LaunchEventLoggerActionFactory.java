@@ -7,11 +7,6 @@ import javax.swing.ImageIcon;
 
 import org.scijava.plugin.Plugin;
 
-import fiji.plugin.trackmate.TrackMatePlugIn_;
-import fiji.plugin.trackmate.action.TrackMateAction;
-import fiji.plugin.trackmate.action.TrackMateActionFactory;
-import fiji.plugin.trackmate.gui.TrackMateGUIController;
-
 @Plugin( type = TrackMateActionFactory.class )
 public class LaunchEventLoggerActionFactory implements TrackMateActionFactory
 {

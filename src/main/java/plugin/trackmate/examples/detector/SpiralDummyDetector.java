@@ -6,8 +6,6 @@ import java.util.List;
 import net.imglib2.Interval;
 import net.imglib2.type.NativeType;
 import net.imglib2.type.numeric.RealType;
-import fiji.plugin.trackmate.Spot;
-import fiji.plugin.trackmate.detection.SpotDetector;
 
 public class SpiralDummyDetector< T extends RealType< T > & NativeType< T >> implements SpotDetector< T >
 {

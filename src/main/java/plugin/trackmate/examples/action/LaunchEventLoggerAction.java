@@ -1,11 +1,6 @@
 package plugin.trackmate.examples.action;
 
 import plugin.trackmate.examples.view.EventLoggerView;
-import fiji.plugin.trackmate.Logger;
-import fiji.plugin.trackmate.Model;
-import fiji.plugin.trackmate.SelectionModel;
-import fiji.plugin.trackmate.TrackMate;
-import fiji.plugin.trackmate.action.TrackMateAction;
 
 public class LaunchEventLoggerAction implements TrackMateAction
 {

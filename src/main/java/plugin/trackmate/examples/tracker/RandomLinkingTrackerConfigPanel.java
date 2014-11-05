@@ -5,9 +5,6 @@ import java.util.Map;
 
 import javax.swing.JLabel;
 
-import fiji.plugin.trackmate.gui.ConfigurationPanel;
-import fiji.plugin.trackmate.gui.panels.components.JNumericTextField;
-
 public class RandomLinkingTrackerConfigPanel extends ConfigurationPanel
 {
 
