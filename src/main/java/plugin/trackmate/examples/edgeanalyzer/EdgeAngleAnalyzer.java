@@ -3,6 +3,7 @@ package plugin.trackmate.examples.edgeanalyzer;
 import ij.ImageJ;
 import ij.ImagePlus;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,13 +15,6 @@ import javax.swing.ImageIcon;
 
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.scijava.plugin.Plugin;
-
-import fiji.plugin.trackmate.Dimension;
-import fiji.plugin.trackmate.FeatureModel;
-import fiji.plugin.trackmate.Model;
-import fiji.plugin.trackmate.Spot;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
-import fiji.plugin.trackmate.features.edges.EdgeAnalyzer;
 
 @Plugin( type = EdgeAnalyzer.class )
 public class EdgeAngleAnalyzer implements EdgeAnalyzer

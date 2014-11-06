@@ -3,6 +3,7 @@ package plugin.trackmate.examples.spotanalyzer;
 import ij.ImageJ;
 import ij.ImagePlus;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,17 +12,10 @@ import java.util.Map;
 
 import javax.swing.ImageIcon;
 
-import net.imglib2.meta.ImgPlus;
 import net.imglib2.type.NativeType;
 import net.imglib2.type.numeric.RealType;
 
 import org.scijava.plugin.Plugin;
-
-import fiji.plugin.trackmate.Dimension;
-import fiji.plugin.trackmate.Model;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
-import fiji.plugin.trackmate.features.spot.SpotAnalyzer;
-import fiji.plugin.trackmate.features.spot.SpotAnalyzerFactory;
 
 @Plugin( type = SpotAnalyzerFactory.class, priority = 1d )
 public class RelativeIntensitySpotAnalyzerFactory< T extends RealType< T > & NativeType< T >> implements SpotAnalyzerFactory< T >

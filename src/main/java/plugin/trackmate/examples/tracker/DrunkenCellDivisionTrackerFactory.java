@@ -11,13 +11,6 @@ import javax.swing.JLabel;
 import org.jdom2.Element;
 import org.scijava.plugin.Plugin;
 
-import fiji.plugin.trackmate.Model;
-import fiji.plugin.trackmate.SpotCollection;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
-import fiji.plugin.trackmate.gui.ConfigurationPanel;
-import fiji.plugin.trackmate.tracking.SpotTracker;
-import fiji.plugin.trackmate.tracking.SpotTrackerFactory;
-
 @Plugin( type = SpotTrackerFactory.class )
 public class DrunkenCellDivisionTrackerFactory implements SpotTrackerFactory
 {
