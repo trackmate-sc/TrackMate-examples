@@ -46,6 +46,17 @@
 		</developer>
 	</developers>
 
+	<scm>
+		<connection>scm:git:git://github.com/fiji/TrackMate-examples</connection>
+		<developerConnection>scm:git:git@github.com:fiji/TrackMate-exmaples</developerConnection>
+		<tag>HEAD</tag>
+		<url>scm:git:git@github.com:fiji/TrackMate-examples</url>
+	</scm>
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://jenkins.imagej.net/job/TrackMate-examples/</url>
+	</ciManagement>
+
 	<properties>
 		<imagej.app.directory>../Fiji.app/</imagej.app.directory>
 	</properties>
@@ -57,18 +68,6 @@
 			<url>http://maven.imagej.net/content/groups/public</url>
 		</repository>
 	</repositories>
-
-	<ciManagement>
-		<system>Jenkins</system>
-		<url>http://jenkins.imagej.net/job/TrackMate-examples/</url>
-	</ciManagement>
-
-	<scm>
-		<connection>scm:git:git://github.com/fiji/TrackMate-examples</connection>
-		<developerConnection>scm:git:git@github.com:fiji/TrackMate-exmaples</developerConnection>
-		<tag>HEAD</tag>
-		<url>scm:git:git@github.com:fiji/TrackMate-examples</url>
-	</scm>
 
 	<dependencies>
 		<!-- Fiji dependencies -->
@@ -170,4 +169,3 @@
 	</build>
 
 </project>
-
