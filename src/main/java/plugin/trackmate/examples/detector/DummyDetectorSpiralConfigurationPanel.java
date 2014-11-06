@@ -6,6 +6,9 @@ import java.util.Map;
 
 import javax.swing.JLabel;
 
+import fiji.plugin.trackmate.gui.ConfigurationPanel;
+import fiji.plugin.trackmate.gui.TrackMateWizard;
+
 public class DummyDetectorSpiralConfigurationPanel extends ConfigurationPanel
 {
 
@@ -14,7 +17,7 @@ public class DummyDetectorSpiralConfigurationPanel extends ConfigurationPanel
 	public DummyDetectorSpiralConfigurationPanel()
 	{
 		/*
-		 * We have no settings, so nothing to tune. Just display an explenatory
+		 * We have no settings, so nothing to tune. Just display an explanatory
 		 * text.
 		 */
 

@@ -3,7 +3,6 @@ package plugin.trackmate.examples.trackanalyzer;
 import ij.ImageJ;
 import ij.ImagePlus;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -16,6 +15,13 @@ import java.util.Set;
 import javax.swing.ImageIcon;
 
 import org.scijava.plugin.Plugin;
+
+import fiji.plugin.trackmate.Dimension;
+import fiji.plugin.trackmate.FeatureModel;
+import fiji.plugin.trackmate.Model;
+import fiji.plugin.trackmate.Spot;
+import fiji.plugin.trackmate.TrackMatePlugIn_;
+import fiji.plugin.trackmate.features.track.TrackAnalyzer;
 
 @Plugin( type = TrackAnalyzer.class )
 public class TrackStartSpotAnalyzer implements TrackAnalyzer

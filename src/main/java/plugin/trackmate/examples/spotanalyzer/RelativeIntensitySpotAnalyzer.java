@@ -4,6 +4,12 @@ import static plugin.trackmate.examples.spotanalyzer.RelativeIntensitySpotAnalyz
 
 import java.util.Iterator;
 
+import fiji.plugin.trackmate.Model;
+import fiji.plugin.trackmate.Spot;
+import fiji.plugin.trackmate.SpotCollection;
+import fiji.plugin.trackmate.features.spot.SpotAnalyzer;
+import fiji.plugin.trackmate.features.spot.SpotIntensityAnalyzerFactory;
+
 public class RelativeIntensitySpotAnalyzer< T > implements SpotAnalyzer< T >
 {
 
