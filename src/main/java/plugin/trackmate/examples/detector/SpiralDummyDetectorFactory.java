@@ -8,8 +8,8 @@ import java.util.Map;
 
 import javax.swing.ImageIcon;
 
+import net.imagej.ImgPlus;
 import net.imglib2.Interval;
-import net.imglib2.meta.ImgPlus;
 import net.imglib2.type.NativeType;
 import net.imglib2.type.numeric.RealType;
 
