@@ -1,3 +1,5 @@
+![](http://jenkins.imagej.net/job/TrackMate-examples/lastBuild/badge/icon)
+
 TrackMate-examples
 ==================
 
