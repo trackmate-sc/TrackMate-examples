@@ -53,6 +53,10 @@
 		<tag>HEAD</tag>
 		<url>scm:git:git@github.com:fiji/TrackMate-examples</url>
 	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>scm:git:git@github.com:fiji/TrackMate-examples/issues</url>
+	</issueManagement>
 	<ciManagement>
 		<system>Jenkins</system>
 		<url>http://jenkins.imagej.net/job/TrackMate-examples/</url>
