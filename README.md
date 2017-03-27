@@ -1,4 +1,4 @@
-[![](http://jenkins.imagej.net/job/TrackMate-examples/lastBuild/badge/icon)](http://jenkins.imagej.net/job/TrackMate-examples/)
+[![](https://travis-ci.org/fiji/TrackMate-examples.svg?branch=master)](https://travis-ci.org/fiji/TrackMate-examples)
 
 TrackMate-examples
 ==================
