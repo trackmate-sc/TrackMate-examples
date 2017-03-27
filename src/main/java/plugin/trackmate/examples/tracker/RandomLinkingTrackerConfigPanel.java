@@ -41,4 +41,7 @@ public class RandomLinkingTrackerConfigPanel extends ConfigurationPanel
 		return map;
 	}
 
+	@Override
+	public void clean() {}
+
 }

@@ -6,46 +6,76 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>sc.fiji</groupId>
-		<artifactId>pom-fiji</artifactId>
-		<version>6.3.0</version>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>14.0.0</version>
 		<relativePath />
 	</parent>
 
+	<groupId>sc.fiji</groupId>
 	<artifactId>TrackMate_examples</artifactId>
 	<version>1.0.3-SNAPSHOT</version>
 
-	<name>plugins/TrackMate_examples.jar</name>
+	<name>TrackMate examples</name>
 	<description>A Maven project with the bare structure to hold TrackMate modules.</description>
+	<url>https://imagej.net/TrackMate_examples</url>
+	<inceptionYear>2014</inceptionYear>
+	<organization>
+		<name>Fiji</name>
+		<url>https://fiji.sc/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>GNU General Public License v3+</name>
+			<url>https://www.gnu.org/licenses/gpl.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<developers>
 		<developer>
 			<id>tinevez</id>
 			<name>Jean-Yves Tinevez</name>
-			<email>jean-yves.tinevez@pasteur.fr</email>
-			<url>http://www.pasteur.fr/ip/easysite/pasteur/fr/recherche/plates-formes-technologiques/imagopole/plates-formes-imagopole/la-plate-forme-d-imagerie-dynamique/equipe-pfid/equipe-pfid-jyt</url>
-			<organization>Institut Pasteur</organization>
-			<organizationUrl>http://www.pasteur.fr/</organizationUrl>
+			<url>http://imagej.net/User:JeanYvesTinevez</url>
 			<roles>
-				<role>architect</role>
+				<role>founder</role>
+				<role>lead</role>
 				<role>developer</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>support</role>
+				<role>maintainer</role>
 			</roles>
-			<timezone>+1</timezone>
 		</developer>
 		<developer>
-			<id>dscho</id>
-			<name>Johannes Schindelin</name>
-			<email>schindelin@wisc.edu</email>
-			<url>http://loci.wisc.edu/people/johannes-schindelin</url>
-			<organization>UW-Madison LOCI</organization>
-			<organizationUrl>http://loci.wisc.edu/</organizationUrl>
+			<id>ctrueden</id>
+			<name>Curtis Rueden</name>
+			<url>http://imagej.net/User:Rueden</url>
 			<roles>
-				<role>architect</role>
-				<role>developer</role>
+				<role>maintainer</role>
 			</roles>
-			<timezone>-6</timezone>
 		</developer>
 	</developers>
+	<contributors>
+		<contributor>
+			<name>Johannes Schindelin</name>
+			<url>http://imagej.net/User:Schindelin</url>
+			<roles><role>founder</role></roles>
+			<properties><id>dscho</id></properties>
+		</contributor>
+		<contributor>
+			<name>Mark Hiner</name>
+			<url>http://imagej.net/User:Hinerm</url>
+			<properties><id>hinerm</id></properties>
+		</contributor>
+	</contributors>
+
+	<mailingLists>
+		<mailingList>
+			<name>ImageJ Forum</name>
+			<archive>http://forum.imagej.net/</archive>
+		</mailingList>
+	</mailingLists>
 
 	<scm>
 		<connection>scm:git:git://github.com/fiji/TrackMate-examples</connection>
@@ -63,11 +93,13 @@
 	</ciManagement>
 
 	<properties>
-		<imagej.app.directory>../Fiji.app/</imagej.app.directory>
+		<package-name>plugin.trackmate.examples.view</package-name>
+		<license.licenseName>gpl_v3</license.licenseName>
+		<license.copyrightOwners>Fiji developers.</license.copyrightOwners>
+		<license.projectName>Fiji distribution of ImageJ for the life sciences.</license.projectName>
 	</properties>
 
 	<repositories>
-		<!-- NB: for project parent -->
 		<repository>
 			<id>imagej.public</id>
 			<url>http://maven.imagej.net/content/groups/public</url>

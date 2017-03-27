@@ -52,4 +52,7 @@ public class DummyDetectorSpiralConfigurationPanel extends ConfigurationPanel
 		return Collections.emptyMap();
 	}
 
+	@Override
+	public void clean() {}
+
 }

@@ -74,6 +74,9 @@ public class DrunkenCellDivisionTrackerFactory implements SpotTrackerFactory
 				// Return empty map.
 				return Collections.emptyMap();
 			}
+
+			@Override
+			public void clean() {}
 		};
 
 		cp.add( new JLabel( getName() ) );
