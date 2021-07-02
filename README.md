@@ -1,4 +1,4 @@
-[![](https://travis-ci.org/fiji/TrackMate-examples.svg?branch=master)](https://travis-ci.org/fiji/TrackMate-examples)
+[![](https://github.com/fiji/TrackMate-examples/actions/workflows/build-main.yml/badge.svg)](https://github.com/fiji/TrackMate-examples/actions/workflows/build-main.yml)
 
 TrackMate-examples
 ==================
