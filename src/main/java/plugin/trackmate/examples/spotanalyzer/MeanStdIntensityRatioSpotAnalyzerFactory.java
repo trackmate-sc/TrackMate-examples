@@ -19,13 +19,13 @@ import net.imagej.ImgPlus;
 import net.imglib2.type.NativeType;
 import net.imglib2.type.numeric.RealType;
 
-@Plugin( type = SpotAnalyzerFactory.class, priority = 1d )
+@Plugin( type = SpotAnalyzerFactory.class, priority = -1. )
 public class MeanStdIntensityRatioSpotAnalyzerFactory< T extends RealType< T > & NativeType< T >> implements SpotAnalyzerFactory< T >
 {
 
-	private static final String KEY = "RELATIVE_INTENSITY";
+	private static final String KEY = "MEAN_OVER_STD";
 
-	public static final String RELATIVE_INTENSITY = "RELATIVE_INTENSITY";
+	public static final String MEAN_OVER_STD = "MEAN_OVER_STD_CH1";
 
 	public static final List< String > FEATURES = new ArrayList< >( 1 );
 
@@ -37,15 +37,15 @@ public class MeanStdIntensityRatioSpotAnalyzerFactory< T extends RealType< T > &
 
 	public static final Map< String, Dimension > FEATURE_DIMENSIONS = new HashMap< >( 1 );
 
-	private static final String NAME = "Mean over std intensity ratio";
+	private static final String NAME = "Mean over std intensity ratio ch1";
 
 	static
 	{
-		FEATURES.add( RELATIVE_INTENSITY );
-		IS_INT.put( RELATIVE_INTENSITY, false );
-		FEATURE_SHORT_NAMES.put( RELATIVE_INTENSITY, "Mean / std" );
-		FEATURE_NAMES.put( RELATIVE_INTENSITY, NAME );
-		FEATURE_DIMENSIONS.put( RELATIVE_INTENSITY, Dimension.NONE );
+		FEATURES.add( MEAN_OVER_STD );
+		IS_INT.put( MEAN_OVER_STD, false );
+		FEATURE_SHORT_NAMES.put( MEAN_OVER_STD, "Mean / std ch1" );
+		FEATURE_NAMES.put( MEAN_OVER_STD, NAME );
+		FEATURE_DIMENSIONS.put( MEAN_OVER_STD, Dimension.NONE );
 	}
 
 	@Override
@@ -112,7 +112,11 @@ public class MeanStdIntensityRatioSpotAnalyzerFactory< T extends RealType< T > &
 	@Override
 	public SpotAnalyzer< T > getAnalyzer( final ImgPlus< T > img, final int frame, final int channel )
 	{
-		return new MeanStdIntensityRatioSpotAnalyzer<>( channel );
+		// Don't make an analyzer for other channels than the first.
+		if ( channel != 0 )
+			return SpotAnalyzer.dummyAnalyzer();
+
+		return new MeanStdIntensityRatioSpotAnalyzer<>();
 	}
 
 	/*

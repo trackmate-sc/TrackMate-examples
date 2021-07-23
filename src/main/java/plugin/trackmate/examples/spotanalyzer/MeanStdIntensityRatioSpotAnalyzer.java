@@ -7,34 +7,29 @@ import net.imglib2.type.numeric.RealType;
 public class MeanStdIntensityRatioSpotAnalyzer< T extends RealType< T > > extends AbstractSpotFeatureAnalyzer< T >
 {
 
-	private final int channel;
-
-	public MeanStdIntensityRatioSpotAnalyzer( final int channel )
-	{
-		this.channel = channel;
-	}
-
 	@Override
 	public void process( final Spot spot )
 	{
 		/*
-		 * Get the feature values created by the other spot analyzer. The
-		 * channel number for feature keys are 1-based, so we need to add to the
-		 * channel number we received in the constructor.
+		 * Get the feature values created by the other spot analyzer for the
+		 * first channel only.
+		 * 
+		 * These values will be null if the spot intensity analyzer has not been
+		 * called before. This is controlled via the priority flag in the
+		 * annotation of the factory,
+		 * 
+		 * The channel number for feature keys are 1-based, so we need to add to
+		 * the channel number we received in the constructor.
 		 */
-		final Double mean = spot.getFeature( "MEAN_INTENSITY_CH" + ( channel + 1 ) );
-		final Double std = spot.getFeature( "STD_INTENSITY_CH" + ( channel + 1 ) );
-		if ( std == null || mean == null )
-		{
-			// Safeguard.
-			return;
-		}
+		final Double mean = spot.getFeature( "MEAN_INTENSITY_CH1" );
+		final Double std = spot.getFeature( "STD_INTENSITY_CH1" );
 
 		// Compute mean / std.
 		final double ratio = mean.doubleValue() / std.doubleValue();
 
 		// Store results.
-		spot.putFeature( MeanStdIntensityRatioSpotAnalyzerFactory.RELATIVE_INTENSITY + ( channel + 1 ), Double.valueOf( ratio ) );
+		final String featureName = MeanStdIntensityRatioSpotAnalyzerFactory.MEAN_OVER_STD;
+		spot.putFeature( featureName, Double.valueOf( ratio ) );
 
 		// That's it!
 	}
