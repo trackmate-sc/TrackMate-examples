@@ -1,8 +1,5 @@
 package plugin.trackmate.examples.edgeanalyzer;
 
-import ij.ImageJ;
-import ij.ImagePlus;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -19,8 +16,10 @@ import fiji.plugin.trackmate.Dimension;
 import fiji.plugin.trackmate.FeatureModel;
 import fiji.plugin.trackmate.Model;
 import fiji.plugin.trackmate.Spot;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
+import fiji.plugin.trackmate.TrackMatePlugIn;
 import fiji.plugin.trackmate.features.edges.EdgeAnalyzer;
+import ij.ImageJ;
+import ij.ImagePlus;
 
 @Plugin( type = EdgeAnalyzer.class )
 public class EdgeAngleAnalyzer implements EdgeAnalyzer
@@ -32,15 +31,15 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 	// The only feature we compute here.
 	private static final String EDGE_ANGLE = "EDGE_ANGLE";
 
-	private static final List< String > FEATURES = new ArrayList< String >( 1 );
+	private static final List< String > FEATURES = new ArrayList< >( 1 );
 
-	private static final Map< String, Boolean > IS_INT = new HashMap< String, Boolean >( 1 );
+	private static final Map< String, Boolean > IS_INT = new HashMap< >( 1 );
 
-	public static final Map< String, String > FEATURE_NAMES = new HashMap< String, String >( 1 );
+	public static final Map< String, String > FEATURE_NAMES = new HashMap< >( 1 );
 
-	public static final Map< String, String > FEATURE_SHORT_NAMES = new HashMap< String, String >( 1 );
+	public static final Map< String, String > FEATURE_SHORT_NAMES = new HashMap< >( 1 );
 
-	public static final Map< String, Dimension > FEATURE_DIMENSIONS = new HashMap< String, Dimension >( 1 );
+	public static final Map< String, Dimension > FEATURE_DIMENSIONS = new HashMap< >( 1 );
 
 	// Let's set the feature list, names, short names and dimensions.
 	static
@@ -182,8 +181,8 @@ public class EdgeAngleAnalyzer implements EdgeAnalyzer
 	public static void main( final String[] args )
 	{
 		ImageJ.main( args );
-		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
-		new TrackMatePlugIn_().run( "" );
+		new ImagePlus( "samples/FakeTracks.tif" ).show();
+		new TrackMatePlugIn().run( "" );
 	}
 
 	@Override
