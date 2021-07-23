@@ -1,16 +1,14 @@
 package plugin.trackmate.examples.action;
 
-import ij.ImageJ;
-import ij.ImagePlus;
-
 import javax.swing.ImageIcon;
 
 import org.scijava.plugin.Plugin;
 
-import fiji.plugin.trackmate.TrackMatePlugIn_;
+import fiji.plugin.trackmate.TrackMatePlugIn;
 import fiji.plugin.trackmate.action.TrackMateAction;
 import fiji.plugin.trackmate.action.TrackMateActionFactory;
-import fiji.plugin.trackmate.gui.TrackMateGUIController;
+import ij.ImageJ;
+import ij.ImagePlus;
 
 @Plugin( type = TrackMateActionFactory.class )
 public class LaunchEventLoggerActionFactory implements TrackMateActionFactory
@@ -47,16 +45,15 @@ public class LaunchEventLoggerActionFactory implements TrackMateActionFactory
 	}
 
 	@Override
-	public TrackMateAction create( final TrackMateGUIController controller )
+	public TrackMateAction create()
 	{
-		return new LaunchEventLoggerAction( controller.getPlugin().getModel(), controller.getSelectionModel() );
+		return new LaunchEventLoggerAction();
 	}
 
 	public static void main( final String[] args )
 	{
 		ImageJ.main( args );
-		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
-		new TrackMatePlugIn_().run( "" );
+		new ImagePlus( "samples/FakeTracks.tif" ).show();
+		new TrackMatePlugIn().run( "" );
 	}
-
 }

@@ -1,32 +1,24 @@
 package plugin.trackmate.examples.action;
 
-import plugin.trackmate.examples.view.EventLoggerView;
+import java.awt.Frame;
+
 import fiji.plugin.trackmate.Logger;
-import fiji.plugin.trackmate.Model;
 import fiji.plugin.trackmate.SelectionModel;
 import fiji.plugin.trackmate.TrackMate;
 import fiji.plugin.trackmate.action.TrackMateAction;
+import fiji.plugin.trackmate.gui.displaysettings.DisplaySettings;
+import plugin.trackmate.examples.view.EventLoggerView;
 
 public class LaunchEventLoggerAction implements TrackMateAction
 {
 
-	private final SelectionModel selectionModel;
-
-	private final Model model;
-
 	private Logger logger;
 
-	public LaunchEventLoggerAction( final Model model, final SelectionModel selectionModel )
-	{
-		this.model = model;
-		this.selectionModel = selectionModel;
-	}
-
 	@Override
-	public void execute( final TrackMate trackmate )
+	public void execute( final TrackMate trackmate, final SelectionModel selectionModel, final DisplaySettings displaySettings, final Frame parent )
 	{
 		logger.log( "Launching a new event logger..." );
-		final EventLoggerView view = new EventLoggerView( model, selectionModel );
+		final EventLoggerView view = new EventLoggerView( trackmate.getModel(), selectionModel );
 		view.render();
 		logger.log( " Done.\n" );
 	}
@@ -36,5 +28,4 @@ public class LaunchEventLoggerAction implements TrackMateAction
 	{
 		this.logger = logger;
 	}
-
 }
