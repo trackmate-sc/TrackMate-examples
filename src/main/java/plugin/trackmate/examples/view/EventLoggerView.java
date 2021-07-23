@@ -1,7 +1,5 @@
 package plugin.trackmate.examples.view;
 
-import ij.IJ;
-
 import java.util.Map;
 
 import org.jgrapht.graph.DefaultWeightedEdge;
@@ -14,6 +12,7 @@ import fiji.plugin.trackmate.SelectionChangeListener;
 import fiji.plugin.trackmate.SelectionModel;
 import fiji.plugin.trackmate.Spot;
 import fiji.plugin.trackmate.visualization.TrackMateModelView;
+import ij.IJ;
 
 public class EventLoggerView implements TrackMateModelView, ModelChangeListener, SelectionChangeListener
 {
@@ -69,26 +68,6 @@ public class EventLoggerView implements TrackMateModelView, ModelChangeListener,
 	public void centerViewOn( final Spot spot )
 	{
 		// Ignored.
-	}
-
-	@Override
-	public Map< String, Object > getDisplaySettings()
-	{
-		// Ignored.
-		return null;
-	}
-
-	@Override
-	public void setDisplaySettings( final String key, final Object value )
-	{
-		// Ignored.
-	}
-
-	@Override
-	public Object getDisplaySettings( final String key )
-	{
-		// Ignored.
-		return null;
 	}
 
 	@Override
@@ -197,5 +176,4 @@ public class EventLoggerView implements TrackMateModelView, ModelChangeListener,
 
 		IJ.log( str.toString() );
 	}
-
 }

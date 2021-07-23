@@ -1,8 +1,5 @@
 package plugin.trackmate.examples.view;
 
-import ij.ImageJ;
-import ij.ImagePlus;
-
 import javax.swing.ImageIcon;
 
 import org.scijava.plugin.Plugin;
@@ -10,9 +7,12 @@ import org.scijava.plugin.Plugin;
 import fiji.plugin.trackmate.Model;
 import fiji.plugin.trackmate.SelectionModel;
 import fiji.plugin.trackmate.Settings;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
+import fiji.plugin.trackmate.TrackMatePlugIn;
+import fiji.plugin.trackmate.gui.displaysettings.DisplaySettings;
 import fiji.plugin.trackmate.visualization.TrackMateModelView;
 import fiji.plugin.trackmate.visualization.ViewFactory;
+import ij.ImageJ;
+import ij.ImagePlus;
 
 @Plugin( type = ViewFactory.class )
 public class EventLoggerViewFactory implements ViewFactory
@@ -47,7 +47,7 @@ public class EventLoggerViewFactory implements ViewFactory
 	}
 
 	@Override
-	public TrackMateModelView create( final Model model, final Settings settings, final SelectionModel selectionModel )
+	public TrackMateModelView create( final Model model, final Settings settings, final SelectionModel selectionModel, final DisplaySettings displaySettings )
 	{
 		return new EventLoggerView( model, selectionModel );
 	}
@@ -60,7 +60,6 @@ public class EventLoggerViewFactory implements ViewFactory
 	{
 		ImageJ.main( args );
 		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
-		new TrackMatePlugIn_().run( "" );
+		new TrackMatePlugIn().run( "" );
 	}
-
 }
