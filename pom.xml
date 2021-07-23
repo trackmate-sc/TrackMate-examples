@@ -8,13 +8,13 @@
 	<parent>
 		<groupId>org.scijava</groupId>
 		<artifactId>pom-scijava</artifactId>
-		<version>26.0.0</version>
+		<version>30.0.0</version>
 		<relativePath />
 	</parent>
 
 	<groupId>sc.fiji</groupId>
 	<artifactId>TrackMate_examples</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 
 	<name>TrackMate examples</name>
 	<description>A Maven project with the bare structure to hold TrackMate modules.</description>
@@ -113,7 +113,8 @@
 		<!-- Fiji dependencies -->
 		<dependency>
 			<groupId>sc.fiji</groupId>
-			<artifactId>TrackMate_</artifactId>
+			<artifactId>TrackMate</artifactId>
+			<version>7.0.4-SNAPSHOT</version>
 		</dependency>
 
 		<!-- ImageJ dependencies -->
