@@ -1,8 +1,5 @@
 package plugin.trackmate.examples.trackanalyzer;
 
-import ij.ImageJ;
-import ij.ImagePlus;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -20,8 +17,10 @@ import fiji.plugin.trackmate.Dimension;
 import fiji.plugin.trackmate.FeatureModel;
 import fiji.plugin.trackmate.Model;
 import fiji.plugin.trackmate.Spot;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
+import fiji.plugin.trackmate.TrackMatePlugIn;
 import fiji.plugin.trackmate.features.track.TrackAnalyzer;
+import ij.ImageJ;
+import ij.ImagePlus;
 
 @Plugin( type = TrackAnalyzer.class )
 public class TrackStartSpotAnalyzer implements TrackAnalyzer
@@ -41,15 +40,15 @@ public class TrackStartSpotAnalyzer implements TrackAnalyzer
 
 	public static final String TRACK_STOP_Z = "TRACK_STOP_Z";
 
-	private static final List< String > FEATURES = new ArrayList< String >( 6 );
+	private static final List< String > FEATURES = new ArrayList< >( 6 );
 
-	private static final Map< String, Boolean > IS_INT = new HashMap< String, Boolean >( 6 );
+	private static final Map< String, Boolean > IS_INT = new HashMap< >( 6 );
 
-	private static final Map< String, String > FEATURE_SHORT_NAMES = new HashMap< String, String >( 6 );
+	private static final Map< String, String > FEATURE_SHORT_NAMES = new HashMap< >( 6 );
 
-	private static final Map< String, String > FEATURE_NAMES = new HashMap< String, String >( 6 );
+	private static final Map< String, String > FEATURE_NAMES = new HashMap< >( 6 );
 
-	private static final Map< String, Dimension > FEATURE_DIMENSIONS = new HashMap< String, Dimension >( 6 );
+	private static final Map< String, Dimension > FEATURE_DIMENSIONS = new HashMap< >( 6 );
 
 	static
 	{
@@ -203,7 +202,7 @@ public class TrackStartSpotAnalyzer implements TrackAnalyzer
 			// This set is NOT ordered. If we want the first one and last one we
 			// have to sort them:
 			final Comparator< Spot > comparator = Spot.frameComparator;
-			final List< Spot > sorted = new ArrayList< Spot >( spots );
+			final List< Spot > sorted = new ArrayList< >( spots );
 			Collections.sort( sorted, comparator );
 
 			// Extract and store feature values.
@@ -234,8 +233,8 @@ public class TrackStartSpotAnalyzer implements TrackAnalyzer
 	public static void main( final String[] args )
 	{
 		ImageJ.main( args );
-		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
-		new TrackMatePlugIn_().run( "" );
+		new ImagePlus( "samples/FakeTracks.tif" ).show();
+		new TrackMatePlugIn().run( "" );
 	}
 
 	@Override
