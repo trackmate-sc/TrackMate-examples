@@ -1,8 +1,5 @@
 package plugin.trackmate.examples.tracker;
 
-import ij.ImageJ;
-import ij.ImagePlus;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,10 +11,12 @@ import org.scijava.plugin.Plugin;
 
 import fiji.plugin.trackmate.Model;
 import fiji.plugin.trackmate.SpotCollection;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
-import fiji.plugin.trackmate.gui.ConfigurationPanel;
+import fiji.plugin.trackmate.TrackMatePlugIn;
+import fiji.plugin.trackmate.gui.components.ConfigurationPanel;
 import fiji.plugin.trackmate.tracking.SpotTracker;
 import fiji.plugin.trackmate.tracking.SpotTrackerFactory;
+import ij.ImageJ;
+import ij.ImagePlus;
 
 @Plugin( type = SpotTrackerFactory.class )
 public class RandomLinkingTrackerFactory implements SpotTrackerFactory
@@ -106,7 +105,8 @@ public class RandomLinkingTrackerFactory implements SpotTrackerFactory
 	public String toString( final Map< String, Object > sm )
 	{
 		// If the settings is not properly built, we return the error message.
-		if ( !checkSettingsValidity( sm ) ) { return errorMessage; }
+		if ( !checkSettingsValidity( sm ) )
+			return errorMessage;
 
 		final StringBuilder str = new StringBuilder();
 		final int nLinks = ( Integer ) sm.get( MAX_LINKS_PER_FRAME );
@@ -119,7 +119,7 @@ public class RandomLinkingTrackerFactory implements SpotTrackerFactory
 	public Map< String, Object > getDefaultSettings()
 	{
 		// Just made of 1 parameter.
-		final Map< String, Object > settings = new HashMap< String, Object >( 1 );
+		final Map< String, Object > settings = new HashMap< >( 1 );
 		settings.put( MAX_LINKS_PER_FRAME, DEFAULT_MAX_LINKS_PER_FRAME );
 		return settings;
 	}
@@ -172,8 +172,7 @@ public class RandomLinkingTrackerFactory implements SpotTrackerFactory
 	public static void main( final String[] args )
 	{
 		ImageJ.main( args );
-		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
-		new TrackMatePlugIn_().run( "" );
+		new ImagePlus( "samples/FakeTracks.tif" ).show();
+		new TrackMatePlugIn().run( "" );
 	}
-
 }

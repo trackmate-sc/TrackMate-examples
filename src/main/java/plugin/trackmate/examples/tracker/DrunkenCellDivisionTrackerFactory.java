@@ -1,7 +1,5 @@
 package plugin.trackmate.examples.tracker;
 
-import ij.ImageJ;
-
 import java.util.Collections;
 import java.util.Map;
 
@@ -13,10 +11,11 @@ import org.scijava.plugin.Plugin;
 
 import fiji.plugin.trackmate.Model;
 import fiji.plugin.trackmate.SpotCollection;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
-import fiji.plugin.trackmate.gui.ConfigurationPanel;
+import fiji.plugin.trackmate.TrackMatePlugIn;
+import fiji.plugin.trackmate.gui.components.ConfigurationPanel;
 import fiji.plugin.trackmate.tracking.SpotTracker;
 import fiji.plugin.trackmate.tracking.SpotTrackerFactory;
+import ij.ImageJ;
 
 @Plugin( type = SpotTrackerFactory.class )
 public class DrunkenCellDivisionTrackerFactory implements SpotTrackerFactory
@@ -127,6 +126,6 @@ public class DrunkenCellDivisionTrackerFactory implements SpotTrackerFactory
 	public static void main( final String[] args )
 	{
 		ImageJ.main( args );
-		new TrackMatePlugIn_().run( "../TrackMate/samples/FakeTracks.tif" );
+		new TrackMatePlugIn().run( "../TrackMate/samples/FakeTracks.tif" );
 	}
 }
