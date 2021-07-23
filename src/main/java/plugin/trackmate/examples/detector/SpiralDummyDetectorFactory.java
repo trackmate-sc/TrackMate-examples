@@ -1,28 +1,26 @@
 package plugin.trackmate.examples.detector;
 
-import ij.ImageJ;
-import ij.ImagePlus;
-
 import java.util.Collections;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
-
-import net.imagej.ImgPlus;
-import net.imglib2.Interval;
-import net.imglib2.type.NativeType;
-import net.imglib2.type.numeric.RealType;
 
 import org.jdom2.Element;
 import org.scijava.plugin.Plugin;
 
 import fiji.plugin.trackmate.Model;
 import fiji.plugin.trackmate.Settings;
-import fiji.plugin.trackmate.TrackMatePlugIn_;
+import fiji.plugin.trackmate.TrackMatePlugIn;
 import fiji.plugin.trackmate.detection.SpotDetector;
 import fiji.plugin.trackmate.detection.SpotDetectorFactory;
-import fiji.plugin.trackmate.gui.ConfigurationPanel;
+import fiji.plugin.trackmate.gui.components.ConfigurationPanel;
 import fiji.plugin.trackmate.util.TMUtils;
+import ij.ImageJ;
+import ij.ImagePlus;
+import net.imagej.ImgPlus;
+import net.imglib2.Interval;
+import net.imglib2.type.NativeType;
+import net.imglib2.type.numeric.RealType;
 
 @Plugin( type = SpotDetectorFactory.class )
 public class SpiralDummyDetectorFactory< T extends RealType< T > & NativeType< T >> implements SpotDetectorFactory< T >
@@ -65,7 +63,7 @@ public class SpiralDummyDetectorFactory< T extends RealType< T > & NativeType< T
 	@Override
 	public SpotDetector< T > getDetector( final Interval interval, final int frame )
 	{
-		return new SpiralDummyDetector< T >( interval, calibration, frame );
+		return new SpiralDummyDetector< >( interval, calibration, frame );
 	}
 
 	@Override
@@ -144,8 +142,7 @@ public class SpiralDummyDetectorFactory< T extends RealType< T > & NativeType< T
 	public static void main( final String[] args )
 	{
 		ImageJ.main( args );
-		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
-		new TrackMatePlugIn_().run( "" );
+		new ImagePlus( "samples/FakeTracks.tif" ).show();
+		new TrackMatePlugIn().run( "" );
 	}
-
 }

@@ -6,8 +6,8 @@ import java.util.Map;
 
 import javax.swing.JLabel;
 
-import fiji.plugin.trackmate.gui.ConfigurationPanel;
-import fiji.plugin.trackmate.gui.TrackMateWizard;
+import fiji.plugin.trackmate.gui.Fonts;
+import fiji.plugin.trackmate.gui.components.ConfigurationPanel;
 
 public class DummyDetectorSpiralConfigurationPanel extends ConfigurationPanel
 {
@@ -22,11 +22,11 @@ public class DummyDetectorSpiralConfigurationPanel extends ConfigurationPanel
 		 */
 
 		final JLabel label1 = new JLabel( SpiralDummyDetectorFactory.NAME );
-		label1.setFont( TrackMateWizard.BIG_FONT );
+		label1.setFont( Fonts.BIG_FONT );
 		add( label1 );
 
 		final JLabel label2 = new JLabel( SpiralDummyDetectorFactory.INFO_TEXT );
-		label2.setFont( TrackMateWizard.FONT );
+		label2.setFont( Fonts.FONT );
 		label2.setPreferredSize( new Dimension( 200, 300 ) );
 		add( label2 );
 
