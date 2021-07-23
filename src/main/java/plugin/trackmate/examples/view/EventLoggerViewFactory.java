@@ -59,7 +59,7 @@ public class EventLoggerViewFactory implements ViewFactory
 	public static void main( final String[] args )
 	{
 		ImageJ.main( args );
-		new ImagePlus( "../fiji/samples/FakeTracks.tif" ).show();
+		new ImagePlus( "samples/FakeTracks.tif" ).show();
 		new TrackMatePlugIn().run( "" );
 	}
 }
