@@ -78,7 +78,7 @@
 	</mailingLists>
 
 	<scm>
-		<connection>scm:git:git://github.com/fiji/TrackMate-examples</connection>
+		<connection>scm:git:https://github.com/fiji/TrackMate-examples</connection>
 		<developerConnection>scm:git:git@github.com:fiji/TrackMate-exmaples</developerConnection>
 		<tag>HEAD</tag>
 		<url>scm:git:git@github.com:fiji/TrackMate-examples</url>
