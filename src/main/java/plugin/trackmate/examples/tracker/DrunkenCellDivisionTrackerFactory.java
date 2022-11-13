@@ -128,4 +128,10 @@ public class DrunkenCellDivisionTrackerFactory implements SpotTrackerFactory
 		ImageJ.main( args );
 		new TrackMatePlugIn().run( "../TrackMate/samples/FakeTracks.tif" );
 	}
+
+	@Override
+	public SpotTrackerFactory copy()
+	{
+		return new DrunkenCellDivisionTrackerFactory();
+	}
 }

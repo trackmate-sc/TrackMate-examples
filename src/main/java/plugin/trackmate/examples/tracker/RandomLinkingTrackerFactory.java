@@ -169,6 +169,12 @@ public class RandomLinkingTrackerFactory implements SpotTrackerFactory
 		return errorMessage;
 	}
 
+	@Override
+	public SpotTrackerFactory copy()
+	{
+		return new RandomLinkingTrackerFactory();
+	}
+
 	public static void main( final String[] args )
 	{
 		ImageJ.main( args );

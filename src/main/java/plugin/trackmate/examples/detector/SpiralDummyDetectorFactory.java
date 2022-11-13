@@ -13,6 +13,7 @@ import fiji.plugin.trackmate.Settings;
 import fiji.plugin.trackmate.TrackMatePlugIn;
 import fiji.plugin.trackmate.detection.SpotDetector;
 import fiji.plugin.trackmate.detection.SpotDetectorFactory;
+import fiji.plugin.trackmate.detection.SpotDetectorFactoryBase;
 import fiji.plugin.trackmate.gui.components.ConfigurationPanel;
 import fiji.plugin.trackmate.util.TMUtils;
 import ij.ImageJ;
@@ -133,6 +134,12 @@ public class SpiralDummyDetectorFactory< T extends RealType< T > & NativeType< T
 		if ( settings.isEmpty() ) { return true; }
 		errorMessage = "Expected the settings map to be empty, but it was not: " + settings + '\n';
 		return false;
+	}
+
+	@Override
+	public SpotDetectorFactoryBase< T > copy()
+	{
+		return new SpiralDummyDetectorFactory<>();
 	}
 
 	/*
