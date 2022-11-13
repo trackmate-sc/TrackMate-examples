@@ -11,7 +11,7 @@
 
 	<groupId>sc.fiji</groupId>
 	<artifactId>TrackMate_examples</artifactId>
-	<version>7.9.2-SNAPSHOT</version>
+	<version>7.9.3-SNAPSHOT</version>
 
 	<name>TrackMate examples</name>
 	<description>A Maven project with the bare structure to hold TrackMate modules.</description>
