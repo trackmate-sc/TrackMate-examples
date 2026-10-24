@@ -3,8 +3,12 @@
 
 ## Eclipse ##
 /.classpath
+/.factorypath
 /.project
 /.settings/
 
 ## Interactive tests ##
 /samples/
+
+## IntelliJ ##
+/.idea/
